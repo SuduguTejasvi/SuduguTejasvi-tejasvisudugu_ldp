@@ -1,5 +1,3 @@
-// pages/CalculatorPage.js
-
 import React from 'react';
 import Calculator from '../components/organisms/CalculateEvent';
 import SimpleTemplate from '../components/templates/HomeTemplate';
