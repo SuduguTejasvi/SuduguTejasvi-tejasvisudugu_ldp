@@ -33,15 +33,3 @@ export default function ChangePerson() {
 	);
 }
 
-// import React from 'react';
-// import { useState } from 'react';
-
-// export default function Count() {
-// 	let [counter, updateCounter] = useState(0);
-// 	return (
-// 		<div>
-// 			<h2>Counter - {counter}</h2>
-// 			<button onClick={() => updateCounter(++counter)}>Increment</button>
-// 		</div>
-// 	);
-// }
