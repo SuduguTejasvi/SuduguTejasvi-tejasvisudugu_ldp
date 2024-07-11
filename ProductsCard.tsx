@@ -1,10 +1,13 @@
 import React from 'react';
 
-// interface ProductProps {
-// 	name: string;
-// }
+interface ProductProps {
+	name: string;
+	price:number;
+	image:string;
+	category:string;
+}
 
-export default function ProductCard(props: any) {
+export default function ProductCard(props: ProductProps) {
 	return (
 		<>
 			<h2>{props.name}</h2>
