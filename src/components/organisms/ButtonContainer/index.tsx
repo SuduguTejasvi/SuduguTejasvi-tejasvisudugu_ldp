@@ -7,26 +7,38 @@ interface Props {
 	handleCalculate: () => void;
 }
 
+const buttons = [
+	{ label: '1', value: '1' },
+	{ label: '2', value: '2' },
+	{ label: '3', value: '3' },
+	{ label: '+', value: '+' },
+	{ label: '4', value: '4' },
+	{ label: '5', value: '5' },
+	{ label: '6', value: '6' },
+	{ label: '-', value: '-' },
+	{ label: '7', value: '7' },
+	{ label: '8', value: '8' },
+	{ label: '9', value: '9' },
+	{ label: '*', value: '*' },
+	{ label: '0', value: '0' },
+	{ label: '.', value: '.' },
+	{ label: '=', value: 'calculate' },
+	{ label: '/', value: '/' },
+	{ label: 'C', value: 'clear' }
+];
+
 function ButtonContainer({ handleClick, handleClear, handleCalculate }: Props) {
 	return (
 		<div className="button">
-			<Button onClick={() => handleClick('1')} label="1" />
-			<Button onClick={() => handleClick('2')} label="2" />
-			<Button onClick={() => handleClick('3')} label="3" />
-			<Button onClick={() => handleClick('+')} label="+" />
-			<Button onClick={() => handleClick('4')} label="4" />
-			<Button onClick={() => handleClick('5')} label="5" />
-			<Button onClick={() => handleClick('6')} label="6" />
-			<Button onClick={() => handleClick('-')} label="-" />
-			<Button onClick={() => handleClick('7')} label="7" />
-			<Button onClick={() => handleClick('8')} label="8" />
-			<Button onClick={() => handleClick('9')} label="9" />
-			<Button onClick={() => handleClick('*')} label="*" />
-			<Button onClick={() => handleClick('0')} label="0" />
-			<Button onClick={() => handleClick('.')} label="." />
-			<Button onClick={handleCalculate} label="=" />
-			<Button onClick={() => handleClick('/')} label="/" />
-			<Button onClick={handleClear} label="C" />
+			{buttons.map((button) => {
+				if (button.value === 'calculate') {
+					return <Button key={button.label} onClick={handleCalculate} label={button.label} />;
+				}
+				if (button.value === 'clear') {
+					return <Button key={button.label} onClick={handleClear} label={button.label} />;
+				}
+				return <Button key={button.label} onClick={() => handleClick(button.value)} label={button.label} />;
+			})}
 		</div>
 	);
 }

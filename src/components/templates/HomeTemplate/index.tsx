@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SimpleTemplateProps {
-	children: any;
+	children:  React.ReactNode;
   }
 const SimpleTemplate = ({ children }:SimpleTemplateProps) => {
   const styles = {

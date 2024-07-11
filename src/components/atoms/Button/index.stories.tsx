@@ -1,38 +1,36 @@
 import React from "react";
 import Button from "./index";
-import { StoryFn } from "@storybook/react/*";
+import { Meta,StoryObj } from "@storybook/react/*";
 
 
 
-export default{
+const meta:Meta<typeof Button>={
   title: 'Components/Buttons',
-  component:'Button',
-}
-interface StoryProps{
-  label:string|number,
-  onClick:()=>void,
-}
-
-const Template:StoryFn<StoryProps>=(args)=><Button {...args}/>
+  component:Button,
+};
+export default meta;
 
 
-export const Default=Template.bind({});
-Default.args={
+type story=StoryObj<typeof Button>;
+
+
+export const Default:story={
+args:{
   label:'Default',
   onClick:()=>{alert('clicked')}
-}
+}};
 
-export const WithNumberLabel=Template.bind({});
-WithNumberLabel.args = {
+export const WithNumberLabel:story={
+args : {
   label: 123,
   onClick:()=>{alert('clicked')}
-}
+}};
 
-export const withLongLabel=Template.bind({});
-withLongLabel.args = {
+export const withLongLabel:story={
+args : {
   label: 'This is a very long label that will not fit on the button',
   onClick:()=>{alert('clicked')}
-}
+}}
 
 
 
