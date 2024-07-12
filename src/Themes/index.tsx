@@ -6,17 +6,16 @@ export const theme=createTheme({
 
             fontFamily:'MontSerrat',
             fontSize:'20px',
-            fontWeight:500,
+            fontWeight:'600',
             lineHeight:'30px',
             textAlign:'left',
             color:'#373C38'
-
 
         },
         h4:{
             fontFamily:'MontSerrat',
             fontSize:'12px',
-            fontWeight:500,
+            fontWeight:'500',
             lineHeight:'16px',
             textAlign:'left',
             color:'#FF725E'
@@ -25,7 +24,7 @@ export const theme=createTheme({
         h6:{
             fontFamily:'MontSerrat',
             fontSize:'12px',
-            fontWeight:500,
+            fontWeight:'500',
             lineHeight:'16px',
             textAlign:'left',
             color:'#656E66'
