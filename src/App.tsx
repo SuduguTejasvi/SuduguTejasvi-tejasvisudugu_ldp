@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { ThemeProvider, Typography } from '@material-ui/core';
+import { Icon } from './components/atoms/Icons/index'; // Adjust import path if necessary
+import CustomButton from './components/atoms/Button/index'; // Adjust import path if necessary
+import SliderComponent from './components/atoms/Slider';
+import SummaryTitle from './components/molecule/Title';
+import TypeModule from './components/molecule/Term';
+import Summary from './components/organism/HandleSlider/index';
+import SummaryPage from './pages/SummaryPage';
+import { Theme } from './themes/index'; // Adjust import path if necessary
+const App = () => {
+	return (
+		<div>
+			
+			<SummaryPage />
+		</div>
+	);
+};
 
 export default App;
