@@ -95,23 +95,6 @@ body::after {
     width: 100%;
 }
 
-/* .card {
-    padding: 10px;
-    margin: 10px;
-    background-image: linear-gradient(360deg, rgb(39 37 37), rgb(18, 18, 18));
-    box-shadow: 4px 4px 9px rgb(249 248 248 / 50%);
-}
-
-.itemName {
-    font-size: 1rem;
-}
-
-.itemCost {
-    font-size: 0.75rem;
-    color: #f34646;
-    font-weight: bold;
-    text-align: center;
-} */
 .card {
     display: flex;
     align-items: center;
@@ -151,7 +134,6 @@ body::after {
 }
 
 /* Rest of your CSS code remains the same */
-
 
 #menuSearch,
 #tableSearch {
@@ -226,17 +208,6 @@ body::after {
     font-weight: bold;
 }
 
-/* .item-image {
-    height: 100px;
-    float:left;
-    position: relative;
-    clear:both;
-    bottom:100px;
-    left: 40px;
-    right:0px;
-    margin: 0%;
-    padding: 0px;
-} */
 /* Modal styling */
 .modal {
     display: none; 
@@ -259,7 +230,7 @@ body::after {
     border: 1px solid #888;
     width: 80%; 
     max-width: 500px; 
-    color: black
+    color: black;
 }
 
 .close {
@@ -276,27 +247,28 @@ body::after {
     cursor: pointer;
 }
 
-.close-button ,#closeGenerateButton{
-    background-color:red;
+.close-button, #closeGenerateButton {
+    background-color: red;
     color: white;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
     font-size: 0.75rem;
 }
-.generate-button{
-    background-color:#007bff;
+
+.generate-button {
+    background-color: #007bff;
     color: white;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
     font-size: 0.75rem;
-
 }
 
 .close-button:hover {
-    background-color:rgb(252, 101, 101);
+    background-color: rgb(252, 101, 101);
 }
+
 .billTable {
     width: 100%;
     border-collapse: collapse;
@@ -339,7 +311,7 @@ body::after {
 .btn-danger {
     background-color: #dc3545;
     color: white;
-    border:none;
+    border: none;
 }
 
 tfoot {
@@ -350,6 +322,7 @@ tfoot td {
     padding: 10px;
     background-color: #f2f2f2;
 }
+
 .tcard {
     display: flex;
     flex-direction: column;
@@ -359,5 +332,4 @@ tfoot td {
     box-shadow: 4px 4px 9px rgba(249, 248, 248, 0.5);
     border-radius: 8px;
     cursor: pointer;
-    /* overflow-y: auto; */
 }
