@@ -11,8 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+<<<<<<< HEAD
 
 @font-face {
   font-family: 'Gilroy';
   src: url(../public/asserts/fonts/Gilroy-Regular.ttf);
 }
+=======
+>>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d

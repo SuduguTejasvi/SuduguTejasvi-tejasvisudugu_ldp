@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { createContext, useState } from 'react';
 import './App.css';
 import { ThemeProvider } from '@mui/material/styles';
@@ -28,6 +29,26 @@ function App() {
        
       </ThemeProvider>
     </isDark.Provider>
+=======
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import MyntraCard from './components/organism/Card';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from '../src/Themes/index';
+import CardTemplate from './Template/Cardtemplate';
+import CalculatorPage from './pages/index';
+function App() {
+  return (
+    <>
+    {/* <CalculatorPage/> */}
+    <ThemeProvider theme={theme}>
+      
+      <CardTemplate><MyntraCard/></CardTemplate>
+      
+    </ThemeProvider>
+    </>
+>>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d
   );
 }
 
