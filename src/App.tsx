@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
 import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, IconButton } from '@mui/material';
+import { lightTheme, darkTheme } from '../src/Themes/index';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+import CardLayout from './components/Template';
+export const isDark = createContext(false);
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <isDark.Provider value={isDarkMode}>
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <CssBaseline />
+        <IconButton 
+          onClick={toggleTheme} 
+          style={{ position: 'absolute', top: 20, right: 20, color: isDarkMode ? '#fff' : '#000' }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {isDarkMode ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
+        <CardLayout/>
+       
+      </ThemeProvider>
+    </isDark.Provider>
   );
 }
 
