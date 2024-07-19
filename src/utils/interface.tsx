@@ -1,4 +1,4 @@
-import theme from '../../themes/index';
+import theme from '../themes/index';
 export interface CustomButtonProps {
 	label: string;
 	disabled?: boolean;
@@ -29,4 +29,7 @@ export interface SummaryProps {
 }
 export interface SummaryTemplateProps {
 	children: any;
+}
+export interface sliderValueProps{
+	initialValue:number;
 }
