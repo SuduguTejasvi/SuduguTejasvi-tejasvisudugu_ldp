@@ -51,7 +51,7 @@ export default function Form() {
   };
 
   return (
-   <>
+   <Box>
     <CustomGridRight>
       <Grid item xs={12} justifyContent="center">
         <Text variants="h4" text="Get Started Now" />
@@ -76,6 +76,6 @@ export default function Form() {
     </CustomGridRight>
     <ToastContainer
 />
-   </>
+   </Box>
   );
 }
