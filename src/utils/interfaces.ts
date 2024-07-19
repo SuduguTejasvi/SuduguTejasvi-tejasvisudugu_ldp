@@ -9,13 +9,13 @@ export interface textprops{
     text:string;
 }
 export interface customheaderprops{
-    headertitle:string;
-    handleAdd:()=>void;
+    headerTitle:string;
+    handleAddBooksData:()=>void;
 }
 export interface dataactionsprops {
-    handleGetData: () => void;
-    handleUpdateData: () => void;
-    handleDeleteData: () => void;
+    handleGetBooksData: () => void;
+    handleUpdateBooksData: () => void;
+    handleDeleteBooksData: () => void;
   }
 
   export interface dataprops {
@@ -35,3 +35,5 @@ export interface dataactionsprops {
 export interface bookstoretemplateprops {
   children: React.ReactNode;
 }
+
+export type iconButtonColor = 'inherit' | 'primary' | 'secondary' | 'default' | 'error' | 'info' | 'success' | 'warning';

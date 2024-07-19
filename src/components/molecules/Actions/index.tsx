@@ -1,25 +1,24 @@
 import React from 'react';
 import { IconButton, Box } from '@mui/material';
 import { Delete, Edit, Visibility } from '@mui/icons-material';
-import { dataactionsprops } from '../../../utils/interfaces';
-
-type IconButtonColor = 'inherit' | 'primary' | 'secondary' | 'default' | 'error' | 'info' | 'success' | 'warning';
+import { dataactionsprops,iconButtonColor } from '../../../utils/interfaces';
+import { COLOR_PRIMARY,COLOR_SECONDARY,COLOR_ERROR,GET_DATA,UPDATE_DATA,DELETE_DATA } from '../../../utils/constants';
 
 const DataActions: React.FC<dataactionsprops> = ({
-  handleGetData,
-  handleUpdateData,
-  handleDeleteData,
+  handleGetBooksData,
+  handleUpdateBooksData,
+  handleDeleteBooksData,
 }) => {
   const actions = [
-    { action: handleGetData, color: 'primary' as IconButtonColor, label: 'get data', icon: <Visibility /> },
-    { action: handleUpdateData, color: 'secondary' as IconButtonColor, label: 'update data', icon: <Edit /> },
-    { action: handleDeleteData, color: 'error' as IconButtonColor, label: 'delete data', icon: <Delete /> },
+    { action: handleGetBooksData, color:COLOR_PRIMARY as iconButtonColor, label:GET_DATA, icon: <Visibility /> },
+    { action: handleUpdateBooksData, color:COLOR_SECONDARY as iconButtonColor, label:UPDATE_DATA, icon: <Edit /> },
+    { action: handleDeleteBooksData, color:COLOR_ERROR as iconButtonColor, label:DELETE_DATA, icon: <Delete /> },
   ];
 
   return (
     <Box>
-      {actions.map(({ action, color, label, icon }, index) => (
-        <IconButton key={index} onClick={action} aria-label={label} color={color}>
+      {actions.map(({ action, color, label, icon }) => (
+        <IconButton key={label} onClick={action} aria-label={label} color={color}>
           {icon}
         </IconButton>
       ))}

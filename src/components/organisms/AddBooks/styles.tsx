@@ -1,17 +1,16 @@
 import { Grid, styled, TextField } from "@mui/material";
 
-export const CustomGrid=styled(Grid)({
+export const CustomGrid=styled(Grid)(({theme})=>({
     justifyContent:"center",
     alignItems:"center",
     display:"flex",
     flexDirection:"column",
     height:'100vh',
-    gap:"10px"
+    gap:theme.spacing(1.25)
 
-
-});
-export const CustomInput = styled(TextField)({
+}));
+export const CustomInput = styled(TextField)(({theme})=>({
     '& .MuiOutlinedInput-root': {
-        height: '30px'
+        height: theme.spacing(4)
     }
-});
+}));

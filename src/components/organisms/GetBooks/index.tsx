@@ -2,87 +2,100 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import CustomHeader from "../../molecules/Header";
 import { CustomGrid, CustomInput } from "../AddBooks/styles";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Text from "../../atoms/Typography";
 import CustomButton from "../../atoms/Buttons";
 import { dataprops } from "../../../utils/interfaces";
-import { getBooksTitle } from "../../../utils/constants";
+import {
+    BOOKS_API_URL,
+    TITLE_LABEL,
+    AUTHOR_LABEL,
+    GENRE_LABEL,
+    TOTAL_COPIES_LABEL,
+    BACK_BUTTON_LABEL,
+    ADD_BOOK_ROUTE,
+    BOOKS_TABLE_ROUTE,
+    GET_BOOKS_TITLE
+} from "../../../utils/constants";
 
 const GetBook: React.FC = () => {
-    const navigate=useNavigate();
-    const {id}=useParams();
+    const navigate = useNavigate();
+    const { id } = useParams();
 
-    const returnBack = () => {
-        navigate("/");
+    const returnToBooksTable = () => {
+        navigate(BOOKS_TABLE_ROUTE);
     };
-    const addBook = () => {
-        navigate('/add');
-    }
 
+    const addBookData = () => {
+        navigate(ADD_BOOK_ROUTE);
+    };
 
-    const [books,updataeBooks]=useState<dataprops>({ 
-        id:"",
+    const [books, updateBooks] = useState<dataprops>({
+        id: "",
         title: "",
         author: "",
         genre: "",
-        totalCopies: 0,})
-    useEffect(()=>{
-        async function getNewData()
-        {
-            console.log({id});
-            const newdata=await axios.get(`http://localhost:5000/books/${id}`);
-            console.log(newdata);
-            updataeBooks(newdata.data);
-        }    
-       getNewData();
-    },[])
-   
+        totalCopies: 0,
+    });
+
+    useEffect(() => {
+        async function getNewBookData() {
+            try {
+                const newdata = await axios.get(`${BOOKS_API_URL}/${id}`);
+                updateBooks(newdata.data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        getNewBookData();
+    }, [id]);
+
     return (
-            <CustomGrid>
-                <Grid item>
-                <CustomHeader headertitle={getBooksTitle} handleAdd={addBook} />
-                </Grid>
-                <Grid item>
-                    <Grid container>
+        <CustomGrid>
+            <Grid item>
+                <CustomHeader headerTitle={GET_BOOKS_TITLE} handleAddBooksData={addBookData} />
+            </Grid>
+            <Grid item>
+                <Grid container>
                     <Grid item xs={6}>
-                    <Text variants="subtitle1" text="Title:" />
-                    </Grid>
-                    <Grid item xs={6}>
-                    <Text variants="subtitle1" text={books.title} />
-                    </Grid>
-                    </Grid>
-                  <Grid container>
-                  <Grid item xs={6}>
-                   <Text variants="subtitle1" text="Author:" />
-                   </Grid>
-                   <Grid item xs={6}>
-                   <Text variants="subtitle1" text={books.author} />
-                   </Grid>
-                  </Grid>
-                   <Grid container>
-                   <Grid item xs={6}>
-                   <Text variants="subtitle1" text="Genre:" />
-                   </Grid>
-                   <Grid item xs={6}>
-                   <Text variants="subtitle1" text={books.genre} />
-                   </Grid>
-                    </Grid>
-                    
-                    <Grid container>
-                    <Grid item xs={6}>
-                    <Text variants="subtitle1" text="Total Copies:" />
+                        <Text variants="subtitle1" text={TITLE_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                    <Text variants="subtitle1" text={books.totalCopies.toString()}/>
-                    </Grid>
-                    </Grid>
-                    
-                    <Grid container sx={{ marginTop: '15px' }}>
-                        <Grid item xs={6}><CustomButton label="Back" handleClick={returnBack} variants="contained" /></Grid>
+                        <Text variants="subtitle1" text={books.title} />
                     </Grid>
                 </Grid>
-            </CustomGrid>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={AUTHOR_LABEL} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={books.author} />
+                    </Grid>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={GENRE_LABEL} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={books.genre} />
+                    </Grid>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={TOTAL_COPIES_LABEL} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Text variants="subtitle1" text={books.totalCopies.toString()} />
+                    </Grid>
+                </Grid>
+                <Grid container sx={{ marginTop: '1rem' }}>
+                    <Grid item xs={6}>
+                        <CustomButton label={BACK_BUTTON_LABEL} handleClick={returnToBooksTable} variants="contained" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </CustomGrid>
     );
 }
 

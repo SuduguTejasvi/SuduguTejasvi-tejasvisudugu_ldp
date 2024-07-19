@@ -1,12 +1,11 @@
 import React from "react";
 import { Typography ,Box} from "@mui/material";
 import Text from "../../atoms/Typography"; 
-
+import {PAGE_NOT_FOUND_MSG} from "../../../utils/constants"
 const NotFound: React.FC = () => {
-    // const navigate = useNavigate();
     return (
         <Box>
-            <Text variants="h6" text="This is Not Found Page" />
+            <Text variants="h6" text={PAGE_NOT_FOUND_MSG} />
         </Box>
     );
 }
