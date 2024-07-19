@@ -7,10 +7,11 @@ import SliderComponent from '../../atoms/Slider';
 
 import TypeModule from '../../molecule/Term';
 import { container, ItemFormat } from './style';
-import { SummaryProps } from '../../../utils/interfaces';
+import { SummaryProps } from '../../../utils/interface';
 
 const Summary: React.FC<SummaryProps> = ({ initialValue }) => {
-	const [sliderValue, setSliderValue] = useState(initialValue);
+
+	const [sliderValue, setSliderValue] = useState<number>(initialValue);
 
 	const handleSliderChange = (event: Event, newValue: number | number[]) => {
 		if (typeof newValue === 'number') setSliderValue(newValue);
@@ -79,3 +80,5 @@ const Summary: React.FC<SummaryProps> = ({ initialValue }) => {
 };
 
 export default Summary;
+
+
