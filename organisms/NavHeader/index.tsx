@@ -5,26 +5,26 @@ import { useNavigate } from "react-router-dom";
 export default function NavigationBar() {
   const navigate = useNavigate();
   
-  const handleHome = () => {
+  const displayHomePage = () => {
     navigate("/");
   };
 
-  const handleAbout = () => {
+  const displayAboutPage = () => {
     navigate("/about");
   };
 
-  const handleContact = () => {
+  const displayContactPage = () => {
     navigate("/contact");
   };
 
   return (
     <NavHeader 
-      handleHome={handleHome} 
-      handleAbout={handleAbout} 
-      handleContact={handleContact} 
-      hlabel="Home" 
-      alabel="About" 
-      clabel="Contact us" 
+      handleHome={displayHomePage} 
+      handleAbout={displayAboutPage} 
+      handleContact={displayContactPage} 
+      homePageLabel="Home" 
+      aboutPageLabel="About" 
+      contactPageLabel="Contact us" 
     />
   );
 }

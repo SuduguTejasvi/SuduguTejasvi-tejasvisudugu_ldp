@@ -3,20 +3,20 @@ import { Button, Box } from "@mui/material";
 import { CustomHeader } from "./index.styles";
 
 interface NavHeaderProps {
-  handleHome: () => void;
-  handleAbout: () => void;
-  handleContact: () => void;
-  hlabel: string;
-  alabel: string;
-  clabel: string;
+  displayHomePage: () => void;
+  displayAboutPage: () => void;
+  displayContactPage: () => void;
+  homePageLabel: string;
+  aboutPageLabel: string;
+  contactPageLabel: string;
 }
 
-const NavHeader: React.FC<NavHeaderProps> = ({ handleHome, handleAbout, handleContact, hlabel, alabel, clabel }) => {
+const NavHeader: React.FC<NavHeaderProps> = ({ displayHomePage, displayAboutPage, displayContactPage, homePageLabel,aboutPageLabel, contactPageLabel}) => {
   return (
     <CustomHeader>
-      <Button onClick={handleHome}>{hlabel}</Button>
-      <Button onClick={handleAbout}>{alabel}</Button>
-      <Button onClick={handleContact}>{clabel}</Button>
+      <Button onClick={displayHomePage}>{homePageLabel}</Button>
+      <Button onClick={displayAboutPage}>{aboutPageLabel}</Button>
+      <Button onClick={displayContactPage}>{contactPageLabel}</Button>
     </CustomHeader>
   );
 };
