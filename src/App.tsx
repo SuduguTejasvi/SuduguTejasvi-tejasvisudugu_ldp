@@ -8,7 +8,7 @@ import CardLayout from './components/Template';
 export const isDark = createContext(false);
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => !prevMode);

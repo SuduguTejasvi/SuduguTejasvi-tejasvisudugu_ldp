@@ -12,9 +12,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Form() {
-  const isDarkMode = useContext(isDark);
-  const [usernameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const isDarkMode = useContext<boolean>(isDark);
+  const [usernameError, setUsernameError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<boolean>(false);
 
   const userInputRef = useRef<HTMLInputElement>(null); 
   const passwordInputRef = useRef<HTMLInputElement>(null); 
