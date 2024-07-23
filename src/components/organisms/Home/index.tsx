@@ -23,17 +23,19 @@ const Home: React.FC = () => {
         }
     };
 
-    const loginWithGitHub = async () => {
+    const loginWithLinkedin = async () => {
         try {
+            console.log("Entered login try block");
             await loginWithRedirect({
                 authorizationParams: {
-                    connection: 'github',
+                    connection: 'linkedin',
                     screen_hint: 'login',
                     redirect_uri: 'http://localhost:3002',
                 },
             });
+            console.log("Exited login try block");
         } catch (error) {
-            console.error("GitHub authentication error:", error);
+            console.error("LinkedIn authentication error:", error);
         }
     };
 
@@ -53,8 +55,8 @@ const Home: React.FC = () => {
                 buttonvariant="contained" 
                 handleGoogleSignIn={loginWithGoogle} 
                 googleButtonLabel="Sign in with Google" 
-                githubButtonLabel="Sign in with GitHub" 
-                handleGithubSignIn={loginWithGitHub}
+                githubButtonLabel="Sign in with Linkedin" 
+                handleGithubSignIn={loginWithLinkedin}
             />
         </CustomBox>
     );

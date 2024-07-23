@@ -6,13 +6,13 @@ export const CustomGrid = styled(Box)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '300px',
-    width: '500px',
-    gap:'10px',
+    height: '18.75rem',
+    width: '31.25rem',
+    gap:'0.625rem',
     backgroundColor: '#04052e',
     color: 'white',
     margin: 'auto', 
-    borderRadius:'20px'
+    borderRadius:'1.25rem'
    
 }));
 
