@@ -14,18 +14,6 @@ function App() {
   const { logout } = useAuth0();
   return (
    <>
-   
-   {/* <UserForm/>
-   <UserAccount/> */}
-  {/* {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-      Log Out
-    </button>: <button onClick={() => loginWithRedirect()}>Log In</button>} */}
-    {/* <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/dashboard" element={<FinanceTracker/>} />
-    </Routes>
-    </BrowserRouter> */}
     <FinanceTrackerPage/>
 
    </>
