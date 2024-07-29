@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZemosoRestaurant</title>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="heading">
+            <h1>Restaurant Billing System</h1>
+        </header>
+        <div class="menu">
+            <div class="table-section">
+                <h3>Tables</h3>
+                <input type="search" id="tableSearch" placeholder="Search tables...">
+                <span><button class="btn btn-primary" id="addTablebtn">+</button></span>
+                <div id="table-section"></div>
+            </div>
+            <div class="menu-section">
+                <h3>Menu</h3>
+                <input type="search" id="menuSearch" placeholder="Search menu...">
+                <span><button class="btn btn-primary" id="addmenubtn">+</button></span>
+                <div id="card-container"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="billpopup">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h5 class="modal-title">Bill Details</h5>
+            <div class="modal-body" id="bill-details">
+                <!-- Content will be dynamically added here -->
+            </div>
+            <div class="modal-footer">
+                <button class="close-button" id="closeButton">Close</button>
+                <button id="generateBillButton" class="generate-button">Generate Bill</button>
+            </div>
+        </div>
+    </div>
+    <div id="generateBillModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeGenerateModal">&times;</span>
+                <h2>Bill Details</h2>
+            </div>
+            <div class="modal-body" id="generateBillContent">
+                <!-- Bill details will be dynamically generated here -->
+            </div>
+            <div class="modal-footer">
+                <button id="closeGenerateButton" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="addTable" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeaddTable">&times;</span>
+                <h2>Add Table Items</h2>
+            </div>
+            <div class="modal-body" id="addtableContent">
+                <!-- Bill details will be dynamically generated here -->
+                <form id="addTableForm">
+                    <label for="tableName">Table Name:</label>
+                    <input type="text" id="tableName" name="tableName" required><br><br>
+                    <button type="submit" class="btn-primary" id="addTableSubmit">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="closeAddTablebtn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="addMenu" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="closeaddMenu">&times;</span>
+                <h2>Add Menu Items</h2>
+            </div>
+            <div class="modal-body" id="addmenuContent">
+                <!-- Bill details will be dynamically generated here -->
+                <form id="addmenuForm">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName" name="itemName" required><br><br>
+                    <label for="itemPrice">Item Price:</label>
+                    <input type="number" id="itemPrice" name="itemPrice" required><br><br>
+                    <label for="itemCategory">Item Category:</label>
+                    <select id="itemCategory" name="itemCategory" required>
+                        <option value="starters">Starters</option>
+                        <option value="mainCourse">Main course</option>
+                        <option value="desserts">Desserts</option>
+                    </select><br><br>
+                    <label for="imageurl">Photo URL:</label>
+                    <input type="text" id="imageurl" name="imageurl"><br><br>
+                    <button type="submit" class="btn-primary" id="addMenuSubmit">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="closeAddMenubtn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./script.js" defer></script>
+</body>
+</html>
