@@ -1,0 +1,7 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../public/asserts/fonts/Montserrat-Regular.ttf') ;
+    /* Add other formats as needed */
+}
