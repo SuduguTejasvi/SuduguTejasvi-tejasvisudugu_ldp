@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            throwExceptions(6);
+            throwExceptions(9git ad);
         } catch (CustomException1 | CustomException2 | CustomException3 | NullPointerException e) {
             System.out.println("Caught exception: " + e.getMessage());
         } finally {
