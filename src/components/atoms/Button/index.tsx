@@ -1,12 +1,9 @@
-import React from 'react';
-
-interface Props {
-	onClick: () => void;
-	label: string | number;
+import React from 'react'
+import { Button } from '@mui/material'
+import { customButtonProps } from '../../../utils/interface'
+const CustomButton=({label,handleButtonClick,variants}:customButtonProps)=>{
+  return (
+    <Button onClick={handleButtonClick} variant={variants}>{label}</Button>
+  )
 }
-
-function Button({ onClick, label }: Props) {
-	return <button onClick={onClick}>{label}</button>;
-}
-
-export default Button;
+export default CustomButton

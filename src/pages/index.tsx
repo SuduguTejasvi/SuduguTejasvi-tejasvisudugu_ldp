@@ -1,15 +1,15 @@
-import React from 'react';
-import Calculator from '../components/organisms/CalculateEvent';
-import SimpleTemplate from '../components/templates/HomeTemplate';
-
-function CalculatorPage() {
-	return (
-		<div className="CalculatorPage">
-			<SimpleTemplate>
-      			<Calculator />
-    		</SimpleTemplate>
-		</div>
-	);
+import React from 'react'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import Home from '../components/organisms/Home'
+import FinanceTracker from '../components/organisms/FinanceTracker'
+export default function FinanceTrackerPage() {
+  return (
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/dashboard" element={<FinanceTracker/>} />
+    </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default CalculatorPage;

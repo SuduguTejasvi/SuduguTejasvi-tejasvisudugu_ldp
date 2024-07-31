@@ -1,13 +1,10 @@
-import React from 'react'
-import { Typography } from '@mui/material'
-interface TextProps{
-    text:string,
-    variant:'h4'|'h6'|'h3'|'subtitle1',
+import { Typography } from '@mui/material';
+import React from 'react';
+import { customTypographyProps } from '../../../utils/interface';
+
+const CustomTypography=({variants,text}:customTypographyProps)=>{
+  return (
+    <Typography variant={variants}>{text}</Typography>
+  )
 }
-export function Text(props:TextProps)
-{
-    return(
-        <Typography variant={props.variant}>{props.text}</Typography>
-        
-    )
-}
+export default CustomTypography;
