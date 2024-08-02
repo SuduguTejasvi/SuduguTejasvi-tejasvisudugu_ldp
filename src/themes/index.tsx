@@ -1,55 +1,44 @@
-import { createTheme } from "@mui/material";
+import { Theme,createTheme } from "@mui/material";
 
-export const Theme=createTheme({
+export const theme=createTheme({
     typography:{
-        h1:{
-            fontSize: '3rem',
-            fontWeight: 600,
-            fontFamily:'Gilroy',
-            color: '#000000',
-        },
-        h2:{
-            fontSize: '2rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
-
-        },
         h3:{
-            fontSize: '1.5rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
+
+            fontFamily:'MontSerrat',
+            fontSize:'20px',
+            fontWeight:'600',
+            lineHeight:'30px',
+            textAlign:'left',
+            color:'#373C38'
 
         },
         h4:{
-            fontSize: '1.2rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
-
-        },
-        h5:{
-            fontSize: '1rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
+            fontFamily:'MontSerrat',
+            fontSize:'12px',
+            fontWeight:'500',
+            lineHeight:'16px',
+            textAlign:'left',
+            color:'#FF725E'
 
         },
         h6:{
-            fontSize: '0.8rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
+            fontFamily:'MontSerrat',
+            fontSize:'12px',
+            fontWeight:'500',
+            lineHeight:'16px',
+            textAlign:'left',
+            color:'#656E66'
 
         },
         subtitle1:{
-            fontSize: '1rem',
-            fontWeight: 600,
-            fontFamily: 'Gilroy',
-            color: '#000000',
+            fontFamily:'MontSerrat',
+            fontSize:'12px',
+            fontWeight:700,
+            lineHeight:'16px',
+            textAlign:'left',
+            color:'#656E66'
 
         }
-    }
 
+    }
 })
