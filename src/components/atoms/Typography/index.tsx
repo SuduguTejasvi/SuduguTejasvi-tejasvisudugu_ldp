@@ -1,10 +1,16 @@
-import { Typography } from '@mui/material';
 import React from 'react';
-import { customTypographyProps } from '../../../utils/interface';
+import { ThemeProvider, Typography } from '@material-ui/core';
 
-const CustomTypography=({variants,text}:customTypographyProps)=>{
-  return (
-    <Typography variant={variants}>{text}</Typography>
-  )
-}
-export default CustomTypography;
+import { TextProps } from '../../../utils/interfaces';
+import {Theme} from '../../../themes/index';
+
+export const Text: React.FC<TextProps> = ({ variant, text }) => {
+	return<>
+	<ThemeProvider theme={Theme}>
+	<Typography variant={variant}>{text}</Typography>
+
+	</ThemeProvider>
+	
+	</>
+	 
+};
