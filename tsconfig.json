@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-=======
+
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
@@ -108,10 +107,9 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   }
 }
-=======
 {
   "compilerOptions": {
->>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d
+
     "target": "es5",
     "lib": [
       "dom",
@@ -130,18 +128,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-<<<<<<< HEAD
+
     "jsx": "react-jsx"
   },
   "include": [
     "src"
-=======
+
     "jsx": "react-jsx",
     "outDir": "../dist"
   },
   "include": [
     "src",
     "src/pages"
->>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d
+
   ]
 }
