@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-=======
+
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
@@ -108,16 +107,12 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   }
 }
-=======
+
 {
   "compilerOptions": {
->>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d
+
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -129,19 +124,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-<<<<<<< HEAD
+
     "jsx": "react-jsx"
   },
   "include": [
     "src"
-=======
+
     "jsx": "react-jsx",
-    "outDir": "../dist"
+    "noEmit": true  // Set to true if you're not emitting JavaScript files from TypeScript (e.g., in a pure frontend project)
   },
+
   "include": [
     "src",
     "src/pages"
->>>>>>> 0d091b39844ce777c69b8f5a8a99c359d5b5068d
+
   ]
+
 }

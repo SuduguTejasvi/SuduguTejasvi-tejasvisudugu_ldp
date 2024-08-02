@@ -1,11 +1,22 @@
-import React from "react";
-import { Button } from "@mui/material";
-import { ButtonProps } from "../../../utils/interfaces";
+import React from 'react';
+import { Button, ThemeProvider } from '@mui/material';
+import { useStyles } from './style';
+import Theme from '../../../themes';
 
-export default function CustomizedButton({ variants, label, handleClick }: ButtonProps) {
-  return (
-    <Button variant={variants} onClick={handleClick}>
-      {label}
-    </Button>
-  );
-}
+import { CustomButtonProps } from '../../../utils/interfaces';
+const CustomButton: React.FC<CustomButtonProps> = ({
+	label,
+	disabled,
+	type,
+	onClick
+}) => {
+	return (
+		<ThemeProvider theme={Theme}>
+			<Button disabled={disabled} variant={type} onClick={onClick}>
+				{label}
+			</Button>
+		</ThemeProvider>
+	);
+};
+
+export default CustomButton;
