@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import CustomHeader from "../../molecules/Header";
-import { CustomGrid, CustomInput } from "../AddBooks/styles";
+import { CustomGrid } from "../AddBooks/styles";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Text from "../../atoms/Typography";
@@ -23,15 +23,15 @@ const GetBook: React.FC = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    const returnToBooksTable = () => {
+    const navigateToBooksTable = () => {
         navigate(BOOKS_TABLE_ROUTE);
     };
 
-    const addBookData = () => {
+    const navigateToAddBook = () => {
         navigate(ADD_BOOK_ROUTE);
     };
 
-    const [books, updateBooks] = useState<dataprops>({
+    const [book, updateBook] = useState<dataprops>({
         id: "",
         title: "",
         author: "",
@@ -40,21 +40,21 @@ const GetBook: React.FC = () => {
     });
 
     useEffect(() => {
-        async function getNewBookData() {
+        async function fetchBookData() {
             try {
-                const newdata = await axios.get(`${BOOKS_API_URL}/${id}`);
-                updateBooks(newdata.data);
+                const response = await axios.get(`${BOOKS_API_URL}/${id}`);
+                updateBook(response.data);
             } catch (error) {
                 console.error(error);
             }
         }
-        getNewBookData();
+        fetchBookData();
     }, [id]);
 
     return (
         <CustomGrid>
             <Grid item>
-                <CustomHeader headerTitle={GET_BOOKS_TITLE} handleAddBooksData={addBookData} />
+                <CustomHeader headerTitle={GET_BOOKS_TITLE} handleAddBooksData={navigateToAddBook} />
             </Grid>
             <Grid item>
                 <Grid container>
@@ -62,7 +62,7 @@ const GetBook: React.FC = () => {
                         <Text variants="subtitle1" text={TITLE_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.title} />
+                        <Text variants="subtitle1" text={book.title} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -70,7 +70,7 @@ const GetBook: React.FC = () => {
                         <Text variants="subtitle1" text={AUTHOR_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.author} />
+                        <Text variants="subtitle1" text={book.author} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -78,7 +78,7 @@ const GetBook: React.FC = () => {
                         <Text variants="subtitle1" text={GENRE_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.genre} />
+                        <Text variants="subtitle1" text={book.genre} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -86,12 +86,12 @@ const GetBook: React.FC = () => {
                         <Text variants="subtitle1" text={TOTAL_COPIES_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.totalCopies.toString()} />
+                        <Text variants="subtitle1" text={book.totalCopies.toString()} />
                     </Grid>
                 </Grid>
                 <Grid container sx={{ marginTop: '1rem' }}>
                     <Grid item xs={6}>
-                        <CustomButton label={BACK_BUTTON_LABEL} handleClick={returnToBooksTable} variants="contained" />
+                        <CustomButton label={BACK_BUTTON_LABEL} handleClick={navigateToBooksTable} variants="contained" />
                     </Grid>
                 </Grid>
             </Grid>

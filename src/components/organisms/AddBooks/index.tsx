@@ -35,7 +35,7 @@ const AddBooks: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const handleNavigateToBooksTable = () => {
+    const redirectToBooksTable = () => {
         navigate(BOOKS_TABLE_ROUTE);
     };
 
@@ -47,7 +47,7 @@ const AddBooks: React.FC = () => {
         });
     };
 
-    const handleAddBooksData = async () => {
+    const handleSubmitBookForm = async () => {
         try {
             const { title, author, genre, totalCopies } = book;
 
@@ -73,7 +73,7 @@ const AddBooks: React.FC = () => {
     return (
         <CustomGrid>
             <Grid item>
-                <CustomHeader headerTitle={ADD_BOOKS_TITLE} handleAddBooksData={handleAddBooksData} />
+                <CustomHeader headerTitle={ADD_BOOKS_TITLE} handleAddBooksData={handleSubmitBookForm} />
             </Grid>
             <Grid item>
                 <Text variants="subtitle1" text={TITLE_LABEL} />
@@ -110,10 +110,10 @@ const AddBooks: React.FC = () => {
                 />
                 <Grid container sx={{ marginTop: '1rem' }}>
                     <Grid item xs={4}>
-                        <CustomButton label={ADD_BUTTON_LABEL} handleClick={handleAddBooksData} variants="contained" />
+                        <CustomButton label={ADD_BUTTON_LABEL} handleClick={handleSubmitBookForm} variants="contained" />
                     </Grid>
                     <Grid item xs={4}>
-                        <CustomButton label={BACK_BUTTON_LABEL} handleClick={handleNavigateToBooksTable} variants="contained" />
+                        <CustomButton label={BACK_BUTTON_LABEL} handleClick={redirectToBooksTable} variants="contained" />
                     </Grid>
                 </Grid>
             </Grid>

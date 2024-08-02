@@ -7,7 +7,6 @@ import axios from "axios";
 import Text from "../../atoms/Typography";
 import CustomButton from "../../atoms/Buttons";
 import { dataprops } from "../../../utils/interfaces";
-import { v4 as uuidv4 } from 'uuid'; 
 import { booksprops } from "../../../utils/interfaces";
 import {
     BOOKS_API_URL,
@@ -48,7 +47,7 @@ const UpdateBook: React.FC = () => {
         fetchBookData();
     }, [id]);
    
-    const updateBooksData = async () => {
+    const handleUpdateBook = async () => {
         try {
             if (!book.title || !book.author || !book.genre || book.totalCopies === undefined) {
                 alert(FILL_ALL_FIELDS_MESSAGE);
@@ -65,35 +64,35 @@ const UpdateBook: React.FC = () => {
         }
     };
 
-    const updateBookDetails = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setBook(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: name === "totalCopies" ? parseInt(value) : value
         }));
     };
 
-    const addBookData = () => {
+    const navigateToAddBook = () => {
         navigate(ADD_BOOK_ROUTE);
     }
 
     return (
         <CustomGrid>
             <Grid item>
-                <CustomHeader headerTitle={UPDATE_BOOKS_TITLE} handleAddBooksData={addBookData} />
+                <CustomHeader headerTitle={UPDATE_BOOKS_TITLE} handleAddBooksData={navigateToAddBook} />
             </Grid>
             <Grid item>
                 <Text variants="subtitle1" text={TITLE_LABEL} />
-                <CustomInput variant="outlined" type="text" name="title" value={book.title} onChange={updateBookDetails} />
+                <CustomInput variant="outlined" type="text" name="title" value={book.title} onChange={handleInputChange} />
                 <Text variants="subtitle1" text={AUTHOR_LABEL} />
-                <CustomInput variant="outlined" type="text" name="author" value={book.author} onChange={updateBookDetails} />
+                <CustomInput variant="outlined" type="text" name="author" value={book.author} onChange={handleInputChange} />
                 <Text variants="subtitle1" text={GENRE_LABEL} />
-                <CustomInput variant="outlined" type="text" name="genre" value={book.genre} onChange={updateBookDetails} />
+                <CustomInput variant="outlined" type="text" name="genre" value={book.genre} onChange={handleInputChange} />
                 <Text variants="subtitle1" text={TOTAL_COPIES_LABEL} />
-                <CustomInput variant="outlined" type="number" name="totalCopies" value={book.totalCopies} onChange={updateBookDetails} />
+                <CustomInput variant="outlined" type="number" name="totalCopies" value={book.totalCopies} onChange={handleInputChange} />
                 <Grid container sx={{ marginTop: '1rem' }}>
                     <Grid item xs={4}>
-                        <CustomButton label={UPDATE_BUTTON_LABEL} handleClick={updateBooksData} variants="contained" />
+                        <CustomButton label={UPDATE_BUTTON_LABEL} handleClick={handleUpdateBook} variants="contained" />
                     </Grid>
                 </Grid>
             </Grid>

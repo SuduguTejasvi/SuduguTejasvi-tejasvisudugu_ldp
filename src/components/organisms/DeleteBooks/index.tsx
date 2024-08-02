@@ -7,7 +7,6 @@ import axios from "axios";
 import Text from "../../atoms/Typography";
 import CustomButton from "../../atoms/Buttons";
 import { dataprops } from "../../../utils/interfaces";
-import { v4 as uuidv4 } from 'uuid';
 import {
     BOOKS_API_URL,
     CONFIRM_DELETE_MSG,
@@ -25,7 +24,7 @@ import {
 
 const DeleteBook: React.FC = () => {
     const { id } = useParams();
-    const [books, updateBooks] = useState<dataprops>({
+    const [book, updateBook] = useState<dataprops>({
         id: "",
         title: "",
         author: "",
@@ -34,23 +33,23 @@ const DeleteBook: React.FC = () => {
     });
 
     useEffect(() => {
-        async function getNewBookData() {
+        async function fetchBookData() {
             try {
-                const newdata = await axios.get(`${BOOKS_API_URL}/${id}`);
-                updateBooks(newdata.data);
+                const response = await axios.get(`${BOOKS_API_URL}/${id}`);
+                updateBook(response.data);
             } catch (error) {
                 console.error(error);
             }
         }
-        getNewBookData();
+        fetchBookData();
     }, [id]);
 
     const navigate = useNavigate();
 
-    const deleteBookData = async () => {
+    const confirmAndDeleteBook = async () => {
         try {
-            const flag = window.confirm(CONFIRM_DELETE_MSG);
-            if (flag) {
+            const confirmDelete = window.confirm(CONFIRM_DELETE_MSG);
+            if (confirmDelete) {
                 await axios.delete(`${BOOKS_API_URL}/${id}`);
                 navigate(BOOKS_TABLE_ROUTE);
             } else {
@@ -62,14 +61,14 @@ const DeleteBook: React.FC = () => {
         }
     };
 
-    const addBookData = () => {
+    const navigateToAddBook = () => {
         navigate(ADD_BOOK_ROUTE);
     };
 
     return (
         <CustomGrid>
             <Grid item>
-                <CustomHeader headerTitle={ DELETE_BOOK_TITLE} handleAddBooksData={addBookData} />
+                <CustomHeader headerTitle={DELETE_BOOK_TITLE} handleAddBooksData={navigateToAddBook} />
             </Grid>
             <Grid item>
                 <Grid container>
@@ -77,7 +76,7 @@ const DeleteBook: React.FC = () => {
                         <Text variants="subtitle1" text={TITLE_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.title} />
+                        <Text variants="subtitle1" text={book.title} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -85,7 +84,7 @@ const DeleteBook: React.FC = () => {
                         <Text variants="subtitle1" text={AUTHOR_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.author} />
+                        <Text variants="subtitle1" text={book.author} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -93,7 +92,7 @@ const DeleteBook: React.FC = () => {
                         <Text variants="subtitle1" text={GENRE_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.genre} />
+                        <Text variants="subtitle1" text={book.genre} />
                     </Grid>
                 </Grid>
                 <Grid container>
@@ -101,12 +100,12 @@ const DeleteBook: React.FC = () => {
                         <Text variants="subtitle1" text={TOTAL_COPIES_LABEL} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Text variants="subtitle1" text={books.totalCopies.toString()} />
+                        <Text variants="subtitle1" text={book.totalCopies.toString()} />
                     </Grid>
                 </Grid>
                 <Grid container sx={{ marginTop: '1rem' }}>
                     <Grid item xs={4}>
-                        <CustomButton label={DELETE_BUTTON_LABEL} handleClick={deleteBookData} variants="contained" />
+                        <CustomButton label={DELETE_BUTTON_LABEL} handleClick={confirmAndDeleteBook} variants="contained" />
                     </Grid>
                 </Grid>
             </Grid>

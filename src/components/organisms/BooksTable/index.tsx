@@ -48,15 +48,15 @@ const BooksTable: React.FC = () => {
         getBooks();
     }, []);
 
-    const getBookData = (id: string) => {
+    const viewBookDetails = (id: string) => {
         navigate(`/get/${id}`);
     }
 
-    const updateBookData = (id: string) => {
+    const editBook = (id: string) => {
         navigate(`/update/${id}`);
     }
 
-    const deleteBookData = async (id: string) => {
+    const removeBook = async (id: string) => {
         try {
             const flag = window.confirm(CONFIRM_DELETE_MSG);
             if (flag) {
@@ -72,7 +72,7 @@ const BooksTable: React.FC = () => {
         }
     }
 
-    const addBookData = () => {
+    const addNewBook = () => {
         navigate(ADD_BOOK_ROUTE);
     }
 
@@ -80,7 +80,7 @@ const BooksTable: React.FC = () => {
         <Box sx={{ marginTop: '1rem' }}>
             <Grid container>
                 <Grid item xs={12}>
-                    <CustomHeader headerTitle={HEADER_TITLE} handleAddBooksData={addBookData} />
+                    <CustomHeader headerTitle={HEADER_TITLE} handleAddBooksData={addNewBook} />
                 </Grid>
             </Grid>
             <br />
@@ -107,9 +107,9 @@ const BooksTable: React.FC = () => {
                                     <TableCell align="right">{book.totalCopies}</TableCell>
                                     <TableCell align="right">
                                         <DataActions
-                                            handleGetBooksData={() => getBookData(book.id)}
-                                            handleUpdateBooksData={() => updateBookData(book.id)}
-                                            handleDeleteBooksData={() => deleteBookData(book.id)}
+                                            handleGetBooksData={() => viewBookDetails(book.id)}
+                                            handleUpdateBooksData={() => editBook(book.id)}
+                                            handleDeleteBooksData={() => removeBook(book.id)}
                                         />
                                     </TableCell>
                                 </TableRow>
