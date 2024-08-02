@@ -59,7 +59,7 @@ public class Main {
                 .max((s1,s2)->Double.compare(s1.getPercentageTillDate(),s2.getPercentageTillDate()))
                 .orElseGet(()->{
                     System.out.println("No elements present");
-                    return null;
+                    return null;used
                 });
         System.out.println(highestPercentageStudent);
 
