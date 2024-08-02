@@ -1,9 +1,10 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import {TextProps} from '../../../utils/interfaces/index';
+import { textprops } from "../../../utils/interfaces";
 
-export default function Text({variants,text}:TextProps){
-   return(
-    <Typography variant={variants}>{text}</Typography>
-   );
+const Text:React.FC<textprops>=({variants,text})=>{
+    return(
+    <Typography variant={variants} >{text}</Typography>
+    )
 }
+export default Text;

@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import Title from "../../molecules/Title";
 import TravelIcons from "../../molecules/TravelIcons/index";
-import { Text } from "../../atoms/Typography";
+// import { Text } from "../../atoms/Typography";
 import Icons from "../../atoms/Icon";
 import {myntraImg,moreImg,bikeImg,busImg,carImg,trainImg} from "../../../constants";
 import {gridItemStyle} from './styles'
@@ -23,7 +23,7 @@ export default function MyntraCard() {
               <TravelIcons src1={bikeImg} src2={busImg} src3={carImg} src4={trainImg} />
             </Grid>
             <Grid item xs={8}>
-              <Text variant="subtitle1" text="36 min ago" />
+              {/* <Text variant="subtitle1" text="36 min ago" /> */}
             </Grid>
           </Grid>
         </Grid>
