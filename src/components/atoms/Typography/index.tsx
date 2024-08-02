@@ -1,16 +1,9 @@
-import React from 'react';
-import { ThemeProvider, Typography } from '@material-ui/core';
+import React from "react";
+import { Typography } from "@mui/material";
+import {TextProps} from '../../../utils/interfaces/index';
 
-import { TextProps } from '../../../utils/interfaces';
-import {Theme} from '../../../themes/index';
-
-export const Text: React.FC<TextProps> = ({ variant, text }) => {
-	return<>
-	<ThemeProvider theme={Theme}>
-	<Typography variant={variant}>{text}</Typography>
-
-	</ThemeProvider>
-	
-	</>
-	 
-};
+export default function Text({variants,text}:TextProps){
+   return(
+    <Typography variant={variants}>{text}</Typography>
+   );
+}

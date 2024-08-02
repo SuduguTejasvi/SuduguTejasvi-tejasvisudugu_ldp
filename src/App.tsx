@@ -1,30 +1,34 @@
-import React from 'react';
-import { ThemeProvider, Typography } from '@material-ui/core';
-import { Icon } from './components/atoms/Icons/index'; // Adjust import path if necessary
-import CustomButton from './components/atoms/Button/index'; // Adjust import path if necessary
-import SliderComponent from './components/atoms/Slider';
-import SummaryTitle from './components/molecule/Title';
-import TypeModule from './components/molecule/Term';
-import Summary from './components/organism/HandleSlider/index';
-import SummaryPage from './pages/SummaryPage';
-import { useAuth0 } from "@auth0/auth0-react";
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
 import './App.css';
-import UserAccount from './practicse/Account';
-import UserForm from '../src/practicse/Form';
-import Home from './components/organisms/Home';
-import FinanceTracker from './components/organisms/FinanceTracker';
-import FinanceTrackerPage from './pages';
-import { Theme } from './themes/index'; // Adjust import path if necessary
-const App = () => {
-	return (
-		<div>
-			
-			<SummaryPage />
-      <FinanceTrackerPage/>
-		</div>
-	);
-};
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, IconButton } from '@mui/material';
+import { lightTheme, darkTheme } from '../src/Themes/index';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+import CardLayout from './components/Template';
+export const isDark = createContext(false);
+
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
+  return (
+    <isDark.Provider value={isDarkMode}>
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <CssBaseline />
+        <IconButton 
+          onClick={toggleTheme} 
+          style={{ position: 'absolute', top: 20, right: 20, color: isDarkMode ? '#fff' : '#000' }}
+        >
+          {isDarkMode ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
+        <CardLayout/>
+       
+      </ThemeProvider>
+    </isDark.Provider>
+  );
+}
 
 export default App;
