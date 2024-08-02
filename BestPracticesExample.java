@@ -16,8 +16,8 @@ class Order {
 public class BestPracticesExample {
 
     // Function with one parameter that checks whether a number is even or odd
-    static void isEven(int n) {
-        if (n % 2 == 0) {
+    static void isEven(int number) {
+        if (number % 2 == 0) {
             System.out.println(n + " is an even number");
         } else {
             System.out.println(n + " is an odd number");
