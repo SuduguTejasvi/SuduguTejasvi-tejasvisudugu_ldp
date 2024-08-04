@@ -1,12 +1,22 @@
 import React from 'react';
+import { Button, ThemeProvider } from '@mui/material';
+import { useStyles } from './style';
+import Theme from '../../../themes';
 
-interface Props {
-	onClick: () => void;
-	label: string | number;
-}
+import { CustomButtonProps } from '../../../utils/interfaces';
+const CustomButton: React.FC<CustomButtonProps> = ({
+	label,
+	disabled,
+	type,
+	onClick
+}) => {
+	return (
+		<ThemeProvider theme={Theme}>
+			<Button disabled={disabled} variant={type} onClick={onClick}>
+				{label}
+			</Button>
+		</ThemeProvider>
+	);
+};
 
-function Button({ onClick, label }: Props) {
-	return <button onClick={onClick}>{label}</button>;
-}
-
-export default Button;
+export default CustomButton;

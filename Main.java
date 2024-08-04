@@ -1,12 +1,11 @@
 package assignment11;
-
-import java.io.*;
-import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Main {
-
-    public static String getInputFromFile(){
+  
+  public static String getInputFromFile(){
         String input="";
         File file=new File("C:\\Users\\Tejasvi\\IdeaProjects\\JavaAssignments\\src\\assignment11\\input.txt");
         Scanner sc= null;
@@ -21,6 +20,7 @@ public class Main {
         }
         return input;
     }
+  
     public static void getOutputToFile(HashMap<Character,Integer> charCount){
         FileWriter file = null;
         PrintWriter writer = null;
@@ -39,7 +39,8 @@ public class Main {
             writer.close();
         }
     }
-    public static HashMap<Character,Integer> getChractersCount()
+  
+  public static HashMap<Character,Integer> getChractersCount()
     {
         HashMap<Character,Integer> charCount=new HashMap<Character,Integer>();
         String input=getInputFromFile();
@@ -57,9 +58,41 @@ public class Main {
         getOutputToFile(charCount);
         return charCount;
     }
-
+  
+    public static void  throwExceptions(int exceptionType) throws CustomException1, CustomException2, CustomException3 {
+        switch (exceptionType) {
+            case 1:
+                throw new CustomException1("Custom Exception 1");
+            case 2:
+                throw new CustomException2("Custom Exception 2");
+            case 3:
+                throw new CustomException3("Custom Exception 3");
+            default:
+                throw new NullPointerException("No exception specified");
+        }
+    }
     public static void main(String args[]){
-        getChractersCount();
+      
+        Pattern pattern=Pattern.compile("^[A-Z][^.]*\\.$");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a sentence=");
+        String sentence=sc.nextLine();
+        Matcher m=pattern.matcher(sentence);
+        if (m.find()) {
+            System.out.println("Given "+ sentence +"is a valid sentence");
+        }
+        else{
+            System.out.println("Sorry,"+ sentence+" is a invalid sentence");
+        }
+      try {
+            throwExceptions(9);
+        } catch (CustomException1 | CustomException2 | CustomException3 | NullPointerException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        } finally {
+            System.out.println("This is the finally block,");
+        }
+      getChractersCount();
 
     }
 }
+
