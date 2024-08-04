@@ -1,35 +1,35 @@
-export interface customButtonProps {
-    variants: 'contained' | 'outlined' | 'text';
-    label: string;
-    handleButtonClick: () => void;
+import theme from '../themes/index';
+export interface CustomButtonProps {
+	label: string;
+	disabled?: boolean;
+	type: 'outlined' | 'contained';
+	onClick: () => void; // Corrected type to camel case
+}
+export interface IconProps {
+	source: string;
+}
+export interface SliderComponentProps {
+	value: number;
+	onChange: (event: Event, newValue: number | number[]) => void;
+}
+export interface TextProps {
+	variant: 'h4' | 'h6' | 'subtitle1';
+	text: string;
+}
+export interface TypeModuleTypo {
+	texts: string[];
 }
 
-export interface iconProps {
-    source: string;
+export interface TitleProps {
+	text: string;
+	source: string;
 }
-
-export interface customTypographyProps {
-    variants: 'h1' | 'h2' | 'h3' | 'h4' | 'h6' | 'subtitle1' | 'subtitle2' | 'body1';
-    text: string;
+export interface SummaryProps {
+	initialValue: number;
 }
-
-export interface homeTitleProps {
-    mainheading: string;
-    subheading1: string;
-    subheading2: string;
-    moneyicon: string;
-    buttonvariant: 'contained' | 'outlined' | 'text';
-    handleGoogleSignIn: () => void;
-    googleButtonLabel: string;
-    githubButtonLabel:string;
-    handleGithubSignIn:()=>void;
+export interface SummaryTemplateProps {
+	children: any;
 }
-
-export interface inputGroupProps {
-    inputLabel: string;
-    inputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value: number | string;
-}
-export interface financeTrackerTemplate{
-    children:React.ReactNode;
+export interface sliderValueProps{
+	initialValue:number;
 }
