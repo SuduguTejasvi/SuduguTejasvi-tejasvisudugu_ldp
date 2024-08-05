@@ -32,9 +32,9 @@ public class Main {
                         .distinct().forEach(System.out::println);
 
         // 2. Get the names of all students who have enrolled after 2018
-        List<String> studentsEnrolledBefore2018=students.stream().filter(s->s.getYearOfEnrollment()>2018)
+        List<String> studentsEnrolledAfter2018=students.stream().filter(s->s.getYearOfEnrollment()>2018)
                         .map(s->s.getName()).toList();
-        System.out.println(studentsEnrolledBefore2018);
+        System.out.println(studentsEnrolledAfter2018);
 
         // 3. Get the details of all male students in the Computer Science department
         students.stream()
@@ -57,9 +57,12 @@ public class Main {
         // 6. Get the details of the student with the highest percentage
         Student highestPercentageStudent = students.stream()
                 .max((s1,s2)->Double.compare(s1.getPercentageTillDate(),s2.getPercentageTillDate()))
-                .orElseGet(()->{
-                    System.out.println("No elements present");
-                    return null;used
+                .orElseThrow(()->{
+                    try {
+                        throw(new Exception("No element found"));
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 });
         System.out.println(highestPercentageStudent);
 
