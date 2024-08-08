@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react';
+import { iconProps } from '../../../utils/interface';
 
-interface IconProps{
-    source:string,
+const Icon=({source}:iconProps)=>{
+  return (
+    <img src={source}/>
+  )
 }
-export default function Icons (props:IconProps)
-{
-    return (
-        <img src={props.source}/>
-    )
-}
+export default Icon;

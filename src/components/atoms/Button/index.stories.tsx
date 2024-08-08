@@ -1,33 +1,38 @@
-import React from "react";
-import Button from "./index";
 import { Meta,StoryObj } from "@storybook/react/*";
+import CustomButton from "./index";
 
+const meta:Meta<typeof CustomButton>={
+//  title:'Atoms/CustomButton',
+ component:CustomButton,
 
-
-const meta:Meta<typeof Button>={
-  title: 'Components/Buttons',
-  component:Button,
 };
 export default meta;
 
+type story=StoryObj<typeof CustomButton>;
 
-type story=StoryObj<typeof Button>;
+export const Active:story={
+    args:{
+        label:'Review your credit',
+	disabled:false,
+	type:'contained',
+	onClick:()=>{alert('Reviewed your credit')}
+    }
+}
 
+export const Disabled:story={
+    args:{
+        label:'Review your credit',
+	disabled:true,
+	type:'contained',
+	onClick:()=>{alert('Reviewed your credit')}
+    }
+}
 
-export const Default:story={
-args:{
-  label:'Default',
-  onClick:()=>{alert('clicked')}
-}};
-
-export const WithNumberLabel:story={
-args : {
-  label: 123,
-  onClick:()=>{alert('clicked')}
-}};
-
-export const withLongLabel:story={
-args : {
-  label: 'This is a very long label that will not fit on the button',
-  onClick:()=>{alert('clicked')}
-}}
+export const Reset:story={
+    args:{
+        label:'Reset',
+        disabled:false,
+        type:'outlined',
+        onClick:()=>{alert('Reset Done')}
+    }
+}
