@@ -1,0 +1,2 @@
+java is a object oriented programming language
+{a=6, b=1, c=1, d=1, e=4, g=4, i=3, j=2, l=1, m=2, n=3, o=3, p=1, r=3, s=1, t=2, u=1, v=1}
