@@ -1,0 +1,335 @@
+/* WebKit Browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #3b3b3b; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9d9c9c; /* Color of the thumb */
+    height: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb on hover */
+}
+
+body {
+    font-family: "Roboto Slab", serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    overflow-y: hidden;
+    position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/background-img.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure pseudo-element is behind content */
+    opacity: 0.7; /* Adjust opacity to control background image visibility */
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Apply backdrop filter for blur effect */
+    z-index: -1; /* Ensure pseudo-element is behind content */
+}
+
+.app {
+    overflow-y: none;
+    padding-top: 60px; /* Adjust padding to ensure the header is fully visible */
+}
+
+.heading {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black; /* Background color for the header */
+    z-index: 1; /* Ensure the header stays above other content */
+    padding: 10px 0; /* Adjust padding for the header */
+}
+
+.heading h1 {
+    padding: 7px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #07C7C9;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; /* Add padding to ensure the menu doesn't overlap with the header */
+}
+
+.table-section,
+.menu-section {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.table-section {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.menu-section {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    background-image: linear-gradient(360deg, rgb(39 37 37), rgb(18, 18, 18));
+    box-shadow: 4px 4px 9px rgb(249 248 248 / 50%);
+}
+
+.itemName {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.itemCost, .category {
+    font-size: 0.75rem;
+    color: #f34646;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.item-image {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.card-content {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.card-content p {
+    margin: 5px 0;
+}
+
+/* Rest of your CSS code remains the same */
+
+#menuSearch,
+#tableSearch {
+    margin: 15px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #222; /* Background color for the search bar */
+    color: white; /* Text color */
+}
+
+#table-section {
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+#card-container {
+    clear: both;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: calc(100vh - 100px);
+}
+
+@media (min-width: 768px) {
+    .menu {
+        flex-direction: row;
+    }
+
+    .table-section {
+        width: 25%;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .menu-section {
+        width: 75%;
+    }
+
+    #table-section {
+        overflow-y: auto;
+    }
+
+    #card-container {
+        overflow-y: auto;
+    }
+}
+
+.dropped-item {
+    padding: 5px;
+    margin: 5px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+}
+
+.totalPrice {
+    font-size: 0.75rem;
+    font-weight: bold;
+    float: left;
+    position: relative;
+    bottom: 10px;
+    color: #e00278;
+    font-weight: bold;
+}
+
+.totalCount {
+    font-size: 0.75rem;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    bottom: 20px;
+    color: #e00278;
+    font-weight: bold;
+}
+
+/* Modal styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    color: black;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close-button, #closeGenerateButton {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.generate-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.close-button:hover {
+    background-color: rgb(252, 101, 101);
+}
+
+.billTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.billTable th, .billTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.billTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.billrow:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.billrow:hover {
+    background-color: #f1f1f1;
+}
+
+.btn {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tfoot td {
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.tcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    background-image: linear-gradient(360deg, rgb(39 37 37), rgb(18, 18, 18));
+    box-shadow: 4px 4px 9px rgba(249, 248, 248, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+}
