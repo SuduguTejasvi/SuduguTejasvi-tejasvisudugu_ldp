@@ -1,11 +1,11 @@
 use sakila;
 -- Find out the PG-13 rated comedy movies. DO NOT use the film_list table.
-select count(*) from (select film.title,category.name,film.rating
+select film.title,category.name,film.rating
 from film ,film_category,category
 where film.film_id=film_category.film_id
 and film_category.category_id=category.category_id
 and film.rating='PG-13'
-and category.name='Comedy') as subquery;
+and category.name='Comedy';
 
 --  Find out the top 3 rented horror movies.
 select film.title,count(rental.rental_id) as rentalcount
@@ -15,11 +15,12 @@ and film_category.category_id=category.category_id
 and rental.inventory_id=inventory.inventory_id
 and inventory.film_id=film.film_id
 and category.name='Horror' 
-group by film.title
+group by film.title order by count(rental.rental_id) desc
 limit 3;
 
+
 -- Find out the list of customers from India who have rented sports movies.
-select distinct customer.first_name from customer
+select distinct concat(customer.first_name," ",customer.last_name) as customer_name from customer
 inner join address
 on customer.address_id=address.address_id
 inner join city
@@ -41,7 +42,7 @@ and category.name='Sports';
 
 
 -- Find out the list of customers from Canada who have rented “NICK WAHLBERG” movies.
-select distinct customer.first_name from customer
+select distinct concat(customer.first_name," ",customer.last_name) as customer_name from customer
 inner join address
 on customer.address_id=address.address_id
 inner join city
